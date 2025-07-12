@@ -28,7 +28,7 @@ public class Main {
 			System.out.println("\nInstruction # that enters basement = " + step);
 		} catch (IOException e) {
 			System.out.println("\n" + e.getMessage());
-			System.out.println("\n\n FATAL ERROR: The input file was not found.");
+			System.out.println("\nFATAL ERROR: The input file was not found.");
 		}
 	}
 }
