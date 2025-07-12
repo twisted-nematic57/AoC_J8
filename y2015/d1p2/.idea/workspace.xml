@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6231f8ab-ffdc-4361-963d-75334f6eeedf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../d1p1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../d1p1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Profiler#1",
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
@@ -80,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1752292437439</updated>
       <workItem from="1752292439726" duration="5976000" />
-      <workItem from="1752302756901" duration="300000" />
+      <workItem from="1752302756901" duration="684000" />
     </task>
     <servers />
   </component>

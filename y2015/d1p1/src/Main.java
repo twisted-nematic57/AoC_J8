@@ -13,7 +13,7 @@ public class Main {
 			int floor = 0, step = 0;
 			while ((ch = f.read()) != -1) {
 				step++;
-				if((char)ch == '(') {
+				if(ch == '(') {
 					floor++;
 				} else {
 					floor--;
