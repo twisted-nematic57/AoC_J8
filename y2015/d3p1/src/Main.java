@@ -14,6 +14,19 @@ class House {
 }
 
 public class Main {
+	public static void processDelivery(List<House> houseList, int[] coords) {
+		List<House> houseSearch = houseList.stream() // See if there are any houses with the coords we're on now
+				.filter(h -> Arrays.equals(h.coords, coords))
+				.collect(Collectors.toList());
+
+		if(houseSearch.isEmpty()) { // If no house exists with current coords, add a new house.
+			houseList.add(new House());
+			houseList.get(houseList.size() - 1).coords = coords.clone();
+		} else { // If a house exists at this coordinate pair, record another present delivered to this one.
+			houseSearch.get(0).receivedPresents++;
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("CWD = " + System.getProperty("user.dir") + "\n\n");
 		String filePath = "input.txt";
@@ -25,43 +38,33 @@ public class Main {
 			List<House> houses = new ArrayList<>();
 			houses.add(new House());
 			houses.get(0).coords = currCoords.clone();
-			System.out.println("DBG: Current coords: " + Arrays.toString(currCoords)); // DBG
+			System.out.println("Starting coords: " + Arrays.toString(currCoords)); // DBG
 
 			while ((currChar = inputFile.read()) != -1) {
-				System.out.println((char)currChar); // DBG
 				step++;
 
 				switch(currChar) {
 					case '>': // Right (East)
 						currCoords[0]++;
-						System.out.println("DBG: Current coords: " + Arrays.toString(currCoords)); // DBG
-
-						List<House> houseSearch = houses.stream() // See if there are any houses with the coords we're on now
-								.filter(h -> Arrays.equals(h.coords, currCoords))
-								.collect(Collectors.toList());
-
-						System.out.println("DBG: houseSearch.size = " + houseSearch.size());
-
-						if(houseSearch.isEmpty()) { // If no house exists with current coords, add a new house.
-							houses.add(new House());
-							houses.get(houses.size() - 1).coords = currCoords.clone();
-						} else { // If a house exists at this coordinate pair, record another present delivered to this one.
-							houseSearch.get(0).receivedPresents++;
-							System.out.println("DBG: houseSearch.get(0).coords = " + Arrays.toString(houseSearch.get(0).coords));
-							System.out.println("DBG: houseSearch.get(0).receivedPresents = " + houseSearch.get(0).receivedPresents);
-						}
-
-						if(houseSearch.size() > 1) {
-							System.out.println("\n\nTHERE IS A SERIOUS PROBLEM\n\n"); // DBG
-						}
-
+						processDelivery(houses, currCoords);
+						break;
+					case '<': // Left (West)
+						currCoords[0]--;
+						processDelivery(houses, currCoords);
+						break;
+					case '^': // Up (North)
+						currCoords[1]++;
+						processDelivery(houses, currCoords);
+						break;
+					case 'v': // Down (South)
+						currCoords[1]--;
+						processDelivery(houses, currCoords);
 						break;
 				}
-				//System.out.println("DBG: Current coords: " + Arrays.toString(currCoords)); // DBG
+				System.out.println("Step: " + step + "; Current coords: " + Arrays.toString(currCoords));
 			}
 
-			//...
-			System.out.println("\n\nDBG: Total unique houses visited: " + houses.size()); // DBG
+			System.out.println("Total houses that received at least one present: " + houses.size());
 		} catch (IOException e) {
 			System.out.println("\n" + e.getMessage());
 			System.out.println("\nFATAL ERROR: The input file was not found.");
