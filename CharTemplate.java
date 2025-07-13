@@ -8,10 +8,10 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("CWD = " + System.getProperty("user.dir") + "\n\n");
 		String filePath = "input.txt";
-		try (BufferedReader f = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8)) {
-			int ch;
-			int floor = 0, step = 0;
-			while ((ch = f.read()) != -1) {
+		try (BufferedReader inputFile = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8)) {
+			int currChar;
+			// ...
+			while ((currChar = inputFile.read()) != -1) {
 				//...
 			}
 			
