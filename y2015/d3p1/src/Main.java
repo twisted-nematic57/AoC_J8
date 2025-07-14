@@ -38,7 +38,7 @@ public class Main {
 			List<House> houses = new ArrayList<>();
 			houses.add(new House());
 			houses.get(0).coords = currCoords.clone();
-			System.out.println("Starting coords: " + Arrays.toString(currCoords)); // DBG
+			System.out.println("Starting coords: " + Arrays.toString(currCoords));
 
 			while ((currChar = inputFile.read()) != -1) {
 				step++;
