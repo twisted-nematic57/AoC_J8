@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
@@ -11,9 +10,9 @@ public class Main {
 		String filePath = "input.txt";
 		try (BufferedReader inputFile = Files.newBufferedReader(Paths.get(filePath), StandardCharsets.UTF_8)) {
 			String currLine;
-			int step = 0, niceLines = 0, presentVowels = 0;
-			boolean isNice = true, containsDouble = false, containsForbidden = false;
-			char previousChar = '\0';
+			int step = 0, niceLines = 0, presentVowels;
+			boolean isNice, containsDouble, containsForbidden;
+			char previousChar;
 
 			char[] vowels = {'a','e','i','o','u'};
 			String[] forbiddenStrings = {"ab","cd","pq","xy"};
